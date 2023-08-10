@@ -1,15 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './App.css'
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
-    // Fetch all tasks from the backend when the component mounts
     fetchTasks();
   }, []);
-
+  
+  const displayErrorMessage = (message) => {
+    setErrorMessage(message);
+    setTimeout(() => {
+        setErrorMessage('');
+    }, 1000);
+};
   const fetchTasks = async () => {
     try {
       const response = await axios.get('/api/tasks');
@@ -19,6 +26,8 @@ const App = () => {
     }
   };
 
+  
+
   const addTask = async () => {
     if (newTask.trim() === '') return;
     try {
@@ -26,7 +35,7 @@ const App = () => {
       setTasks([...tasks, response.data]);
       setNewTask('');
     } catch (error) {
-      console.error('Error adding task:', error);
+      displayErrorMessage('Data is already present in list');
     }
   };
 
@@ -49,11 +58,15 @@ const App = () => {
   
 
   return (
-    <div>
+    <body>
+    <div id="Ma">
       <h1>To-Do List</h1>
+      <div id="In">
       <input type="text" value={newTask} onChange={(e) => setNewTask(e.target.value)} />
       <button onClick={addTask}>Add Task</button>
-      <ul>
+      {errorMessage && <div className="error-message">{errorMessage}</div>}
+</div>
+      <ul id="ta">
         {tasks.map((task) => (
           <li>
             {task.title}
@@ -62,6 +75,7 @@ const App = () => {
         ))}
       </ul>
     </div>
+    </body>
   );
 };
 

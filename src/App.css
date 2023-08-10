@@ -13,8 +13,83 @@
   }
 }
 
+body{
+  background-color:gainsboro;
+}
+
+#Ma{
+  margin: 4% 20% 2% 30%;
+  background-color: aliceblue;
+  padding: 0.1% 1%;
+}
+
+#In{
+  padding: 3% 0 3% 3%;
+  background-color:beige;
+}
+
+#In input{
+  width: 455px;
+  height: 25px;
+}
+
+#In button{
+  display:flex;
+  margin-left: 85%;
+  padding: 0.5% 1%;
+  border-style: hidden;
+  border-radius: 10px 0 10px 0;
+  box-shadow: 1px 1px 1px 1px;
+  background-color:antiquewhite;
+  cursor:pointer;
+}
+
+#In button:hover{
+  display:flex;
+  margin-left: 85%;
+  padding: 0.5% 1%;
+  border-style: hidden;
+  border-radius: 0px 10px 0px 10px;
+  background-color:beige;
+  transition: 1.5s;
+}
+
+#ta{
+  padding: 3% 5%;
+  background-color: bisque;
+  opacity: 90%;
+  box-sizing:border-box;
+  line-height: 22.5px;
+}
+
+#ta li{
+  margin-bottom: 5px;
+}
+
+#ta button{
+  display:flex;
+  margin-left: 90%;
+  padding: 0.5% 1%;
+  border-color: inherit;
+  border-style: hidden;
+  border-radius: 10px 0 10px 0;
+  box-shadow: 1px 1px 1px 1px;
+  background-color:antiquewhite;
+  cursor:pointer;
+}
+
+#ta button:hover{
+  display:flex;
+  margin-left: 90%;
+  padding: 0.5% 1%;
+  border-style: hidden;
+  border-radius: 0px 10px 0px 10px;
+  background-color:bisque;
+  transition: 1.5s;
+}
+
 .App-header {
-  background-color: #282c34;
+  background-color: #0052f5;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
